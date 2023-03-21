@@ -4,7 +4,7 @@ Návod pro spuštění:
 1. Stáhněte obsah tohoto repozitáře
 2. Ve stažené složce s projektem vytvořte Python virtual environment pomocí ```python -m venv venv``` (Windows)
 3. Aktivujte venv spuštěním scriptu activate ve se složce scripts ```./venv/scripts/activate```
-4. Pomocí ```pip install -r requirements.txt nainstalujte závislosti potřebné pro spuštění 
+4. Pomocí ```pip install -r requirements.txt``` nainstalujte závislosti potřebné pro spuštění 
 5. Přejděte v terminálu do složky gamdb ```cd ./gamdb```
 6. Zde spuste nasledující dvojici příkazů pro vytvoření databáze ```py manage.py makemigrations<i/> a <i>py manage.py migrate```
 7. Následně zde spuste nasledující příkaz pro naplnění databáze daty ```py manage.py --format yaml loaddata ./fixtures/*.yaml```
