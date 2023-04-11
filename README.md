@@ -7,7 +7,7 @@ Návod pro spuštění:
 4. Pomocí ```pip install -r requirements.txt``` nainstalujte závislosti potřebné pro spuštění 
 5. Přejděte v terminálu do složky gamdb ```cd ./gamdb```
 6. Zde spuste nasledující dvojici příkazů pro vytvoření databáze ```py manage.py makemigrations<i/> a <i>py manage.py migrate```
-7. Následně zde spuste nasledující příkaz pro naplnění databáze daty ```py manage.py --format yaml loaddata ./fixtures/*.yaml```
+7. Následně zde spuste nasledující příkaz pro naplnění databáze daty ```py manage.py loaddata --format yaml ./fixtures/*.yaml```
 8. Aplikaci nyní můžete spustit pomocí ```py manage.py runserver```
 9. Nyní otevřete v prohlížeči adresu, jenž se objevila v příkazové řádce
 10. Gratuluji, úspěšně jste spustili filmovou databázi GamDB
