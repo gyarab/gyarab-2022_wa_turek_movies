@@ -1,0 +1,51 @@
+{% extends 'main.html' %}
+
+{% block title %}
+    {{movie.name}} | {{ block.super }}
+{% endblock %}
+{% block head %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{% load static %}
+<script src= "{% static 'films/movie.js' %}">  </script>
+{% endblock %}
+{% block content %}
+<script>setCsrf('{{csrf_token}}')</script>
+<h1>{{movie.name}}</h1>
+<h2>{{movie.avg_rating}}</h2>
+<img src="{% if movie.image_url %}{{movie.image_url}}{% else %}https://place-hold.it/180x100/{% endif %}" alt="Card image cap">
+<p>{{ movie.description|safe }}</p>
+
+<div class="my-2">
+    <p class="text-end">
+        <button
+            class="btn btn-secondary"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#addComment"
+        >
+            Přidat komentář
+        </button>
+    </p>
+
+    <div class="row collapse" id="addComment">
+        <div class="col-12 col-md-6 mx-auto">
+            <form id='form' action="" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input class="form-control btn btn-primary" type="button" value="Odeslat" onclick="addComment()" />
+            </form>
+            <div id="alert" class="alert alert-danger mt-2 d-none" role="alert"></div>
+        </div>
+    </div>
+</div>
+    
+{% for comment in comments %}
+<p>
+    <strong>{{ comment.author }}</strong>, {{ comment.created_at|date:"j. n. Y H:i" }}<br />
+    {% if comment.rating %}{{ comment.rating }}%<br />{% endif %}
+    {{ comment.text }}
+</p>
+<hr />
+{% endfor %}
+
+{% endblock content %}
