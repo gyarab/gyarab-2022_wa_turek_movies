@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-bs-theme="dark" lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -9,7 +9,7 @@
       rel="stylesheet"
       integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
       crossorigin="anonymous"
-    />
+    />    
     {%block head%}{% endblock%}
     <title>{% block title %} GA Movie DB {% endblock title %}</title>
   </head>
@@ -46,6 +46,7 @@
             </li>
           </ul>
         </div>
+        <button id="mode-toggler" class="btn border border-light" onclick="toggleMode()">Light mode</button>
       </div>
     </nav>
     <div class="container my-5">{% block content %} {% endblock content %}</div>
@@ -54,6 +55,7 @@
       integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
       crossorigin="anonymous"
     ></script>
-  
+    {%load static%}
+    <script src="{% static 'films/main.js' %}"></script>
   </body>
 </html>

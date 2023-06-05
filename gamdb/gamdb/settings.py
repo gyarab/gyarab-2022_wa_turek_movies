@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-b_&#p%n$7duk21yb$%os$c59vsc5=eif8=adp&slim6yqn@(n(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['wa.ecko.ga','128.140.15.108','127.0.0.1']
 
 
 # Application definition
@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'films'
 ]
 
