@@ -12,7 +12,7 @@
 <script>setCsrf('{{csrf_token}}')</script>
 <h1>{{movie.name}}</h1>
 <h2>{{movie.avg_rating}}</h2>
-<img src="{% if movie.image_url %}{{movie.image_url}}{% else %}https://place-hold.it/180x100/{% endif %}" alt="Card image cap">
+<img style="width:360px;" src="{% if movie.image_url %}{{movie.image_url}}{% else %}https://place-hold.it/180x100/{% endif %}" alt="Card image cap">
 <p>{{ movie.description|safe }}</p>
 
 <div class="my-2">
