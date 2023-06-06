@@ -7,8 +7,7 @@ from .forms import CommentForm
 def directors(request):
     context = {
         'directors': Director.objects.all()
-    }
-    print(context)
+    }  
     return render(request, 'directors.html', context)
 
 def director(request, id):
