@@ -1,0 +1,13 @@
+{% extends 'main.html' %} {% block title %} {{personality.name}} | {{ block.super }}
+{% endblock %} {% block content %}
+<div class="container-fluid row d-flex justify-content-center">
+<h1 class="text-center">{{personality.name}} ({{personality.birth_year}})</h1>
+<img
+  class="w-75"
+  src="{% if personality.photo_url %}{{personality.photo_url}}{% else %}https://place-hold.it/180x100/{% endif %}"
+  alt="Card image cap"
+  style="object-fit: cover; object-position: center;"
+/>
+<p style="overflow-wrap: break-word;" class="w-75"> {{ personality.description|safe }}</p>
+</div>
+{% endblock content %}

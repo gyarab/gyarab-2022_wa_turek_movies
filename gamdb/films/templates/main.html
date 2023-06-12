@@ -4,12 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load static %}
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}" >
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
       crossorigin="anonymous"
-    />    
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"/>
+    
     {%block head%}{% endblock%}
     <title>{% block title %} GA Movie DB {% endblock title %}</title>
   </head>
@@ -45,17 +49,17 @@
               <a class="nav-link" href="{% url 'actors' %}">Herci</a>
             </li>
           </ul>
-        </div>
-        <button id="mode-toggler" class="btn border border-light" onclick="toggleMode()">Light mode</button>
+          <button id="mode-toggler" class="btn border ms-auto me-2" onclick="toggleMode()"><i id="icon" class="bi bi-brightness-high-fill"></i></button>
+        </div>  
       </div>
     </nav>
-    <div class="container my-5">{% block content %} {% endblock content %}</div>
+    <div class="container my-2">{% block content %} {% endblock content %}</div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
       crossorigin="anonymous"
     ></script>
     {%load static%}
-    <script src="{% static 'films/main.js' %}"></script>
+    <script src="{% static 'films/scripts/main.js' %}"></script>
   </body>
 </html>

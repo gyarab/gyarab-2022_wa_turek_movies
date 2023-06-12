@@ -6,15 +6,15 @@ from .forms import CommentForm
 
 def directors(request):
     context = {
-        'directors': Director.objects.all()
+        'personalities': Director.objects.all()
     }  
     return render(request, 'directors.html', context)
 
 def director(request, id):
     context = {
-        "director": Director.objects.get(id=id)
+        "personality": Director.objects.get(id=id)
     }
-    return render(request, 'director.html', context)
+    return render(request, 'personality.html', context)
 
 def movies(request):
     movies_queryset = Movie.objects.all()
@@ -64,15 +64,16 @@ def movie(request, id):
 
 def actors(request):
     context = {
-        "actors": Actor.objects.all()
+        "personalities": Actor.objects.all(),
+        "url" : 'actor'
     }
     return render(request, 'actors.html', context)
 
 def actor(request, id):
     context = {
-        "actor": Actor.objects.get(id=id)
+        "personality": Actor.objects.get(id=id)
     }
-    return render(request, 'actor.html', context)
+    return render(request, 'personality.html', context)
 
 def homepage(request):
     context = {

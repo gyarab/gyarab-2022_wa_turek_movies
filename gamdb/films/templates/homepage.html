@@ -1,26 +1,37 @@
-{% extends 'main.html' %}
+{% extends 'main.html' %} {% block content %}
+<h1 class="text-center">Filmová Databáze Gymnázia Arabská</h1>
 
-{% block content %}
-<h1>Homepage GA Movies DB</h1>
+<div class="container mt-5">
+  <div class="row">
+    <div
+      class="d-flex flex-row flex-wrap justify-content-center align-items-stretch h-25"
+    >
+      <img
+        class="w-25"
+        src="https://media.tenor.com/8WPW-T8L3nkAAAAM/bocchi-the-rock-bocchi.gif"
+        alt=""
+        style="object-fit: cover; object-position: center"
+      />
 
-<h2>Filmy</h2>
-<ul>
-    {% for movie in movies %}
-        <li>{{movie.name}}</li>
-    {% endfor %}
-</ul>
-
-<h2>Herci</h2>
-<ul>
-    {% for actor in actors %}
-        <li>{{actor.name}}</li>
-    {% endfor %}
-</ul>
-
-<h2>Reziseri</h2>
-<ul>
-    {% for director in directors %}
-        <li>{{director.name}}</li>
-    {% endfor %}
-</ul>
+      <img
+        class="w-25"
+        src="https://media.tenor.com/2prT6nCIEbQAAAAd/mahou-shoujo-magical-destroyers-thumbs-up.gif"
+        alt=""
+        style="object-fit: cover; object-position: 30% 50%"
+      />
+      <img
+        class="w-25"
+        src="https://media.tenor.com/FGo8wPteCq4AAAAC/magical-destroyers-punch.gif"
+        alt=""
+        style="object-fit: cover; object-position: center"
+      />
+      <img
+        class="w-25 h-50"
+        src="https://media.tenor.com/9wllMjsxqaAAAAAM/bocchi-the-rock-bocchi-the-rock-gif.gif"
+        alt=""
+        style="object-fit: cover; object-position: center"
+      />
+    </div>
+  </div>
+</div>
 {% endblock %}
