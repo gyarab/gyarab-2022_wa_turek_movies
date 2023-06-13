@@ -11,8 +11,9 @@ set -e
 # ./manage.py migrate --check
 # auto apply migrations - may be dangerous
 ./manage.py migrate
-
-
+./manage.py collectstatic --noinput
+ls -a
+ls ./static_root
 if [ "$1" = 'uwsgi' ]; then
     # USER_ID=`id -u`
     # GROUP_ID=`id -g`
@@ -23,7 +24,7 @@ if [ "$1" = 'uwsgi' ]; then
     #     GROUP_ID="$3"
     # fi
     # exec gosu admin uwsgi --http=0.0.0.0:80 --module=backend.wsgi --die-on-term --uid "${USER_ID}" --gid "${GROUP_ID}"
-    exec uwsgi --http=0.0.0.0:80 --module=gamdb.wsgi --die-on-term --touch-reload=/app/uwsgi.reload
+    exec uwsgi --http=0.0.0.0:80 --module=gamdb.wsgi --die-on-term --touch-reload=/app/uwsgi.reload --check-static=/app/static/ --mime-file=/app/mime.types 
 fi
 
 exec "$@"
