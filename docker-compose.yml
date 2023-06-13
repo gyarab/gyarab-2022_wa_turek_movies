@@ -24,17 +24,17 @@ services:
    labels:
       - "traefik.enable=true"
 
-      - "traefik.http.routers.gawa-jt-http.rule=Host(`jt.gawa.dtbox.cz`)"
-      - "traefik.http.routers.gawa-jt-http.entrypoints=web"
-      - "traefik.http.routers.gawa-jt-http.middlewares=gawa-jt-redirect-https@docker"
+      - "traefik.http.routers.nginx.rule=Host(`jt.gawa.dtbox.cz`)"
+      - "traefik.http.routers.nginx.entrypoints=web"
+      - "traefik.http.routers.nginx.middlewares=gawa-jt-redirect-https@docker"
 
-      - "traefik.http.middlewares.gawa-jt-redirect-https.redirectscheme.scheme=https"
-      - "traefik.http.middlewares.gawa-jt-redirect-https.redirectscheme.permanent=true"
+      - "traefik.http.middlewares.nginx.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.nginx.redirectscheme.permanent=true"
 
-      - "traefik.http.routers.gawa-jt-https.rule=Host(`jt.gawa.dtbox.cz`)"
-      - "traefik.http.routers.gawa-jt-https.entrypoints=websecure"
-      - "traefik.http.routers.gawa-jt-https.tls=true"
-      - "traefik.http.routers.gawa-jt-https.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.nginxs.rule=Host(`jt.gawa.dtbox.cz`)"
+      - "traefik.http.routers.nginxs.entrypoints=websecure"
+      - "traefik.http.routers.nginxs.tls=true"
+      - "traefik.http.routers.nginxs.tls.certresolver=letsencrypt"
 volumes:
  static:
  conf:
