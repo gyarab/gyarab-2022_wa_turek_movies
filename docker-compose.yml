@@ -1,13 +1,27 @@
-version: "3.3"
+version: "3.7"
 services:
   web:
     restart: unless-stopped
-    build: .
+    build: 
+      context: .
+    ports:
+     - "8000:8000"
+    expose:
+     - "8000" 
     pull_policy: build
-    volumes:
-      - ./gamdb:/app
-
-    labels:
+    volumes: 
+      - static:/static
+  nginx:
+   build: ./nginx
+   volumes: 
+    - static:/static   
+    - conf:/etc/nginx/conf.d
+   ports:
+    - "80:80"
+    - "443:443"
+   depends_on:
+    - web
+   labels:
       - "traefik.enable=true"
 
       - "traefik.http.routers.gawa-jt-http.rule=Host(`jt.gawa.dtbox.cz`)"
@@ -21,3 +35,7 @@ services:
       - "traefik.http.routers.gawa-jt-https.entrypoints=websecure"
       - "traefik.http.routers.gawa-jt-https.tls=true"
       - "traefik.http.routers.gawa-jt-https.tls.certresolver=letsencrypt"
+volumes:
+ static:
+ conf:
+ 
