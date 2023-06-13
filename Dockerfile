@@ -17,13 +17,5 @@ WORKDIR /app
 
 USER admin
 
-<<<<<<< HEAD
-# TODO use start script
-# CMD uwsgi --http=0.0.0.0:80 --module=backend.wsgi --die-on-term --uid "${UID}" --gid "${GID}"
-ENTRYPOINT [ "/start.sh" ]
-CMD [ "uwsgi" ]
-# CMD [ "uwsgi", "'${UID}'", "'${GID}'" ]
-=======
 COPY ./start.sh /
 ENTRYPOINT ["sh","/start.sh"]
->>>>>>> eccfa907ef5b8cd1b22d49f67adc6c741ac41dac
